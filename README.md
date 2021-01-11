@@ -1,5 +1,6 @@
 # helloasso
-Repository with some automatisation for helloasso
+Client for helloasso private(WIP) and public(NDY) api. Along with some automatisation(NDY).
+At the moment only based on the need of one non-profit, feel free to open an issue if you need a specific feature.
 
 ## install
 
