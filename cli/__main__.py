@@ -1,4 +1,4 @@
-from .cli import export_members
+from .cli import cli
 
 if __name__ == '__main__':
-    export_members()
+    cli()

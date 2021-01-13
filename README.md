@@ -12,5 +12,15 @@ pip install -r requirements.txt
 
 ### Export .csv file with new members for a given time span
 ```bash 
-python -m cli --adherent_id=[id] --from_date=1/12/2020 --to_date=1/1/2021 --email='john.doe@foobar.com'
+python -m cli export-members --adherent_id=[id] --from_date=1/12/2020 --to_date=1/1/2021 --email="john.doe@foobar.com"
+```
+
+### Update Gsheet
+
+Follow these instructions to generate a credential file for google drive and gsheet: https://gspread.readthedocs.io/en/latest/oauth2.html#enable-api-access-for-a-project
+
+⚠ If you create "Service account" make sure to share the spreadsheet document with this service account by inviting its generated email address.
+
+```bash 
+python -m cli update-gsheet   --gsheet_url="https://docs.google.com/spreadsheets/..." --gsheet_tab="Sheet1" --update_file=members_table.csv
 ```

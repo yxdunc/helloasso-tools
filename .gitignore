@@ -130,3 +130,9 @@ dmypy.json
 
 # intelij
 .idea
+
+# download default path
+members_table.csv
+
+# credential file default name
+gsheet_credentials.json
