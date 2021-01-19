@@ -21,6 +21,8 @@ Follow these instructions to generate a credential file for google drive and gsh
 
 ⚠ If you create "Service account" make sure to share the spreadsheet document with this service account by inviting its generated email address.
 
+Copy the credential file at the root of the repository and name it: `gsheet_credentials.json`
+
 ```bash 
 python -m cli update-gsheet   --gsheet_url="https://docs.google.com/spreadsheets/..." --gsheet_tab="Sheet1" --update_file=members_table.csv
 ```
