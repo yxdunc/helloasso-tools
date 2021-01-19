@@ -51,16 +51,22 @@ def update_gsheet(update_file, gsheet_tab, gsheet_url, credentials):
     gsheet = gc.open_by_url(gsheet_url)
     gsheet_tab = gsheet.worksheet(gsheet_tab)
 
-    known_ids = gsheet_tab.col_values(1)
+    known_ids = gsheet_tab.col_values(11)
+    last_line = len(known_ids)
+    last_id = int(gsheet_tab.cell(last_line, 1).value)
 
     with open(update_file, 'r', newline='') as file:
         file_reader = list(csv.reader(file, delimiter="\t"))[1:]
         rows_to_insert = []
 
-        for row in file_reader:
-            if row[0] not in known_ids:
-                rows_to_insert.append(row)
-                sys.stderr.write(f"[inserting member {int(row[0])}]\n")
+        index_new_row = 0
 
-        rows_to_insert.sort(key=lambda x: x[0], reverse=True)
-        gsheet_tab.insert_rows(rows_to_insert, 2)
+        for row in file_reader:
+            if row[10] not in known_ids:
+                index_new_row += 1
+                row[0] = last_id + index_new_row
+                rows_to_insert.append(row)
+                sys.stderr.write(f"[inserting member {row[7]} {row[6]}]\n")
+
+        rows_to_insert.sort(key=lambda x: x[0], reverse=False)
+        gsheet_tab.insert_rows(rows_to_insert, last_line + 1)

@@ -17,6 +17,8 @@ python -m cli export-members --adherent_id=[id] --from_date=1/12/2020 --to_date=
 
 ### Update Gsheet
 
+NB: This command expect that the google sheet format is the same as helloasso export. More precisely the index and email column shouldn't be moved and the data should start at the origin. 
+
 Follow these instructions to generate a credential file for google drive and gsheet: https://gspread.readthedocs.io/en/latest/oauth2.html#enable-api-access-for-a-project
 
 ⚠ If you create "Service account" make sure to share the spreadsheet document with this service account by inviting its generated email address.
